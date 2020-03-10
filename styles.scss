@@ -92,3 +92,8 @@ p { margin: 0 0 1em; }
     text-transform: uppercase;
     letter-spacing: 3.7px;
 }
+
+::selection {
+    color: inherit;
+    background: $select;
+}
