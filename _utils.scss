@@ -1,0 +1,30 @@
+// calc width
+$columns: 12;
+@function col($num) {
+	@return 100% / $columns * $num;
+}
+
+// img path
+@function path($src, $dir: '') {
+	$src: unquote($src);
+	$dir: unquote($dir);
+
+	@if $dir == '' {
+		@return url('../assets/' + $src);
+	} @else {
+		@return url('../assets/' + $dir + '/' + $src);
+	}
+}
+
+/*
+ *
+ * Example
+ *
+ *
+   .sidebar {
+        width: 		col(4);
+        background: path('bg.jpg') center no-repeat;
+        background: path('1.jpg', 'member');
+    }
+*
+*/

@@ -1,0 +1,59 @@
+$bps: (
+  'small'   :  576px,
+  'medium'  :  768px,
+  'large'   :  1024px,
+  'xlarge'  :  1200px,
+  'xxlarge' :  1440px
+);
+
+@function bp($size) {
+    @return map-get($bps, $size);
+}
+
+@mixin respond-to($media) {
+    @if $media == phoneS {
+        @media only screen and (max-width: bp('small')) { @content; }
+    }
+    @else if $media == phone {
+        @media only screen and (max-width: bp('medium') - 1px) { @content; }
+    }
+    @else if $media == bigger-than-phone {
+        @media only screen and (min-width: bp('medium')) { @content; }
+    }
+    @else if $media == tablet {
+        @media only screen and (min-width: bp('medium')) and (max-width: bp('large')) { @content; }
+    }
+    @else if $media == tablet-ls {
+        @media only screen and (min-width: bp('medium')) and (max-width: bp('large') and (orientation: landscape)) { @content; }
+    }
+    @else if $media == desktop {
+        @media only screen and (min-width: bp('large') + 1px) { @content; }
+    }
+    @else if $media == desktopL {
+        @media only screen and (min-width: bp('xlarge')) { @content; }
+    }
+    @else if $media == desktopXL {
+        @media only screen and (min-width: bp('xxlarge')) { @content; }
+    }
+}
+
+
+/*
+ *
+ * Example
+ *
+ *
+
+    .container {
+        padding: 0 15px;
+        margin: 0 auto;
+        max-width: 100%;
+
+        @include respond-to(phone) { width: 100%; }
+        @include respond-to(tablet) { width: 768px; }
+        @include respond-to(desktop) { width: 980px; }
+        @include respond-to(desktopXL) { width: 1140px; }
+    }
+
+*
+*/

@@ -1,0 +1,32 @@
+// convert px to em
+@function em($pixels, $context: 16) {
+	@if (unitless($pixels)) {
+		$pixels: $pixels * 1px;
+	}
+
+	@if (unitless($context)) {
+		$context: $context * 1px;
+    }
+    
+	@return $pixels / $context * 1em;
+}
+
+
+$font-title:	'Roboto', sans-serif;
+$font-txt:		'Open Sans', sans-serif;
+
+
+$size:              18px;
+$size-xxl:          em(60px, $size);
+$size-xl:           em(40px, $size);
+$size-l:            em(24px, $size);
+$size-m:            em(20px, $size);
+$size-s:            em(15px, $size);
+
+
+$size-phone:        16px;
+$size-xxl-phone:    em(40px);
+$size-xl-phone:     em(28px);
+$size-l-phone:      em(20px);
+$size-m-phone:      em(18px);
+$size-s-phone:      em(13px);

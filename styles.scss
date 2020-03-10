@@ -1,0 +1,92 @@
+@import 'reset';
+@import 'utils';
+@import 'breakpoints';
+@import 'colors';
+@import 'typography';
+
+// containers
+.container {
+    padding: 0 15px;
+    margin: 0 auto;
+    max-width: 100%;
+
+    @include respond-to(phone) { width: 100%; }
+    @include respond-to(tablet) { width: 768px; }
+    @include respond-to(desktop) { width: 980px; }
+    @include respond-to(desktop-xl) { width: 1140px; }
+}
+
+.container-fluid {
+    width: 100%;
+}
+
+
+// typography
+html, body {
+    font-size: $size-phone;
+    letter-spacing: 0.45px;
+
+    @include respond-to(bigger-than-phone) {
+        font-size: $size;
+        letter-spacing: 0.5px;
+    }
+
+    font-family: $font-txt;
+    font-weight: 400;
+	font-weight: normal;
+	line-height: 1.4em;
+    color: $black;
+}
+
+h1 {
+	font-size: $size-xxl-phone;
+	@include respond-to(bigger-than-phone) { font-size: $size-xxl; }
+}
+
+h2 {
+	font-size: $size-xl-phone;
+	@include respond-to(bigger-than-phone) { font-size: $size-xl; }
+}
+
+h3 {
+	font-size: $size-l-phone;
+	@include respond-to(bigger-than-phone) { font-size: $size-l; }
+}
+
+h4 {
+	font-size: $size-m-phone;
+	@include respond-to(bigger-than-phone) { font-size: $size-m; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 0.5em;
+}
+
+h1, h2, h3, h4, h5, h6,
+nav,
+button,
+.btn-primary,
+.btn-secondary {
+    font-family: $font-title;
+    font-weight: 600;
+}
+
+nav,
+button,
+.btn-primary,
+.btn-secondary {
+    text-transform: uppercase;
+}
+
+p { margin: 0 0 1em; }
+
+.banner-title {
+    font-size: $size-xxl-phone;
+    @include respond-to(bigger-than-phone) { font-size: $size-xxl;}
+}
+
+.subtitle {
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 3.7px;
+}
